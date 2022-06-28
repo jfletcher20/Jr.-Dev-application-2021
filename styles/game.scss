@@ -1,0 +1,179 @@
+body {
+    color: #fff;
+}
+
+/* Track button style */
+.question {
+    &-container {
+        flex-direction: row;
+        width: 100%;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-size: 1.95rem;
+        background: linear-gradient(rgb(6, 185, 240) 0%, rgb(6, 232, 240) 100%);
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 1rem 1rem 0 rgba(6, 103, 247, 0.5);
+            background: linear-gradient(rgb(6, 150, 255) 0%, rgb(6, 200, 255) 100%);
+            transform: scale(2);
+            transition: transform 100ms;
+        }
+    }
+    &-text {
+        margin-top: 15%;
+        height: 100%;
+        width: 110%;
+    }
+}
+
+/* Choice button style */
+.choice {
+    &-container {
+        display: flex;
+        margin-bottom: 0.8rem;
+        width: 100%;
+        border-radius: 4px;
+        background: rgb(18, 93, 255);
+        font-size: 3rem;
+        min-width: 80rem;
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 0.4rem 1.4rem 0 rgba(6, 103, 247, 0.5);
+            transform: scale(1.02);
+            transition: transform 100ms;
+        }
+    }
+    &-text {
+        padding: 2rem;
+        width: 100%;
+    }
+    &-prefix {
+        padding: 2rem 2.5rem;
+        color: white;
+    }
+}
+
+/* Selection styles - correct/incorrect are optional */
+.selected {
+    background: linear-gradient(32deg, rgba(230, 100, 30, 1) 0%, rgb(255, 143, 15) 100%);
+}
+
+.selected-q {
+    background: linear-gradient(180deg, rgba(230, 100, 30, 1) 0%, rgb(255, 143, 15) 100%);
+}
+
+.correct {
+    background: linear-gradient(32deg, rgb(11, 223, 36) 0%, rgb(41, 232, 111) 100%);
+}
+
+.incorrect {
+    background: linear-gradient(32deg, rgba(230, 29, 29, 1) 0%, rgba(224, 11, 11, 1) 100%);
+}
+
+/* Additional UI elements */
+.hud {
+    display: flex;
+    justify-content: space-between;
+    &-prefix {
+        text-align: center;
+        font-size: 2rem;
+    }
+    &-main-text {
+        text-align: center;
+    }
+}
+
+.progressBar {
+    width: 20rem;
+    height: 3rem;
+    border: 0.2rem solid rgb(11,223,36);
+    margin-top: 2rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.questionSelectBar {
+    width: 20.75rem;
+    height: 4rem;
+    border: 0.2rem solid rgb(11, 32, 223);
+    margin-top: 2rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#progressBarFull {
+    height: 100%;
+    background: rgb(11,223,36);
+    width: 0%;
+}
+
+@media screen and (max-width: 768px) {
+    .choice-container {
+        min-width: 40rem;
+    }
+    .track-container {
+        min-width: 15rem;
+    }
+}
+
+.alert {
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    &-text {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    &.show::before {
+        content: '';
+        position: absolute;
+        left:0;
+        bottom:0;
+        height: 4px;
+        background-color:#ac443d;
+        width: 80%;
+        box-sizing: border-box;
+        z-index: 11;
+        animation: hideMeter 3s linear;
+    }
+    &.show {
+        animation: showAlert 0.5s ease forwards;
+    }
+    &.hide {
+        animation: hideAlert 0.5s ease forwards;
+    }
+}
+
+@keyframes hideMeter {
+	0%{
+		width: 0%;
+	}
+	100%{
+		width: 100%;
+	}
+}
+
+@keyframes showAlert {
+	0% {
+		transform: translateX(25%);
+	} 40% {
+	    transform: translateX(-15%);
+	} 80% {
+	    transform: translateX(5px);	
+	} 100% {
+	    transform: translateX(0%);		
+	}
+}
+
+@keyframes hideAlert {
+	0% {
+		transform: translateX(0%);		
+	} 40%{
+		transform: translateX(5px);	
+	} 80%{
+		transform: translateX(-15%);
+	} 100%{
+	   transform: translateX(25%);		
+	}
+}

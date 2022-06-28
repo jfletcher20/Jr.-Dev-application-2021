@@ -1,0 +1,274 @@
+body {
+  color: #fff;
+}
+
+/* Track button style */
+.question-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.95rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(#06b9f0), to(#06e8f0));
+  background: linear-gradient(#06b9f0 0%, #06e8f0 100%);
+}
+
+.question-container:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 1rem 1rem 0 rgba(6, 103, 247, 0.5);
+          box-shadow: 0 1rem 1rem 0 rgba(6, 103, 247, 0.5);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0696ff), to(#06c8ff));
+  background: linear-gradient(#0696ff 0%, #06c8ff 100%);
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  -webkit-transition: -webkit-transform 100ms;
+  transition: -webkit-transform 100ms;
+  transition: transform 100ms;
+  transition: transform 100ms, -webkit-transform 100ms;
+}
+
+.question-text {
+  margin-top: 15%;
+  height: 100%;
+  width: 110%;
+}
+
+/* Choice button style */
+.choice-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  border-radius: 4px;
+  background: #125dff;
+  font-size: 3rem;
+  min-width: 80rem;
+}
+
+.choice-container:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0.4rem 1.4rem 0 rgba(6, 103, 247, 0.5);
+          box-shadow: 0 0.4rem 1.4rem 0 rgba(6, 103, 247, 0.5);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-transition: -webkit-transform 100ms;
+  transition: -webkit-transform 100ms;
+  transition: transform 100ms;
+  transition: transform 100ms, -webkit-transform 100ms;
+}
+
+.choice-text {
+  padding: 2rem;
+  width: 100%;
+}
+
+.choice-prefix {
+  padding: 2rem 2.5rem;
+  color: white;
+}
+
+/* Selection styles - correct/incorrect are optional */
+.selected {
+  background: linear-gradient(32deg, #e6641e 0%, #ff8f0f 100%);
+}
+
+.selected-q {
+  background: -webkit-gradient(linear, left top, left bottom, from(#e6641e), to(#ff8f0f));
+  background: linear-gradient(180deg, #e6641e 0%, #ff8f0f 100%);
+}
+
+.correct {
+  background: linear-gradient(32deg, #0bdf24 0%, #29e86f 100%);
+}
+
+.incorrect {
+  background: linear-gradient(32deg, #e61d1d 0%, #e00b0b 100%);
+}
+
+/* Additional UI elements */
+.hud {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.hud-prefix {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.hud-main-text {
+  text-align: center;
+}
+
+.progressBar {
+  width: 20rem;
+  height: 3rem;
+  border: 0.2rem solid #0bdf24;
+  margin-top: 2rem;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.questionSelectBar {
+  width: 20.75rem;
+  height: 4rem;
+  border: 0.2rem solid #0b20df;
+  margin-top: 2rem;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+#progressBarFull {
+  height: 100%;
+  background: #0bdf24;
+  width: 0%;
+}
+
+@media screen and (max-width: 768px) {
+  .choice-container {
+    min-width: 40rem;
+  }
+  .track-container {
+    min-width: 15rem;
+  }
+}
+
+.alert {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+}
+
+.alert-text {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.alert.show::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  background-color: #ac443d;
+  width: 80%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 11;
+  -webkit-animation: hideMeter 3s linear;
+          animation: hideMeter 3s linear;
+}
+
+.alert.show {
+  -webkit-animation: showAlert 0.5s ease forwards;
+          animation: showAlert 0.5s ease forwards;
+}
+
+.alert.hide {
+  -webkit-animation: hideAlert 0.5s ease forwards;
+          animation: hideAlert 0.5s ease forwards;
+}
+
+@-webkit-keyframes hideMeter {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes hideMeter {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes showAlert {
+  0% {
+    -webkit-transform: translateX(25%);
+            transform: translateX(25%);
+  }
+  40% {
+    -webkit-transform: translateX(-15%);
+            transform: translateX(-15%);
+  }
+  80% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes showAlert {
+  0% {
+    -webkit-transform: translateX(25%);
+            transform: translateX(25%);
+  }
+  40% {
+    -webkit-transform: translateX(-15%);
+            transform: translateX(-15%);
+  }
+  80% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes hideAlert {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  40% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  80% {
+    -webkit-transform: translateX(-15%);
+            transform: translateX(-15%);
+  }
+  100% {
+    -webkit-transform: translateX(25%);
+            transform: translateX(25%);
+  }
+}
+
+@keyframes hideAlert {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  40% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  80% {
+    -webkit-transform: translateX(-15%);
+            transform: translateX(-15%);
+  }
+  100% {
+    -webkit-transform: translateX(25%);
+            transform: translateX(25%);
+  }
+}
+/*# sourceMappingURL=game.css.map */
